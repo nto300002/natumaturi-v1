@@ -90,6 +90,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_controller.default_url_options = { host: 'https://search-stickers.onrender.com/' }
+  config.action_controller.default_url_options = { host: 'search-stickers.onrender.com' }
   config.force_ssl = true
 end
