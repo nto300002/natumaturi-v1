@@ -1,0 +1,14 @@
+<div style="margin-top: 10em; color: gray;">
+<% if @flyer.item_image? %>
+  <%= image_tag @flyer.item_image.url, style: 'padding: 2em;', id: 'preview'  %>
+<% end %>
+<ul style="font-size: 25px;">
+  <li>探しているもの：<%= @flyer.title %></li>
+  <li>詳細：<%= @flyer.requirement %></li>
+  <li>種類：<%= @flyer.searching_for %></li>
+  <li>届けてほしい場所：<%= @flyer.gathering_place %></li>
+</ul>
+<!-- Add more fields as needed -->
+<%= link_to 'Edit', edit_flyer_path(@flyer) %> |
+<%= link_to 'Back', flyers_path %>
+</div>

@@ -1,0 +1,24 @@
+<nav style="background-color: #3cb371; width: 100%;  position: fixed; top: 0; left: 0;">
+  <% if logged_in? %>
+    <ul style="display: flex; list-style: none; align-items: stretch;">
+      <li>
+        <h1>探しています</h1> 
+      </li>
+      <li style="margin-left: 12em;", class="btn btn--green">
+        <%= link_to '探しもの一覧', flyers_path %>
+      </li>
+      <li style="margin-left: 1em;", class="btn btn--green">
+        <%= link_to '探しもの新規作成', new_flyer_path %>
+      </li>
+      <li style="margin-left: 1em;", class="btn btn--green">
+        <%= button_to 'ログアウト', logout_path, method: :delete, data: { turbo_method: 'delete', confirm: 'ログアウトしますか' } %>
+      </li>
+      <li style="margin-left: 6em;">
+        お名前：<%= current_user.name %>
+      </li>
+    </ul>
+  <% else %>
+    <%= link_to '新規登録', signup_path %>
+    <%= link_to 'ログイン', login_path %>
+  <% end %>
+</nav>

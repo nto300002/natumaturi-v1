@@ -1,0 +1,42 @@
+<div style="display: flex; justify-content: center; color: gray;">
+<%= form_with(model: flyer, local: true) do |form| %>
+  <% if flyer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flyer.errors.count, "error") %> prohibited this flyer from being saved:</h2>
+      <%= render 'shared/error_messages', object: flyer %>
+    </div>
+  <% end %>
+
+  <div class="field" style="display: flex; flex-flow: column;">
+    <%= form.label '探しもの' %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field" style="display: flex; flex-flow: column;">
+    <%= form.label '詳細' %>
+    <%= form.text_area :requirement %>
+  </div>
+
+  <div class="field" style="display: flex; flex-flow: column;">
+    <%= form.label '種類' %>
+    <%= form.text_area :searching_for %>
+  </div>
+
+  <div class="field" style="display: flex; flex-flow: column;">
+    <%= form.label '届けてほしい場所' %>
+    <%= form.text_area :gathering_place %>
+  </div>
+
+  <div class="field" style="display: flex; flex-flow: column;">
+    <%= form.label :チラシに貼り付ける画像%><span style="color: red;">※必須</span>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <span style="font-size: 10px; color: red;">※画像を選択しないとエラーが発生します</span>
+  <span style="font-size: 10px; color: red;">※編集時に画像は変更できません</span>
+<% end %>
+</div>
+

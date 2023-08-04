@@ -1,0 +1,15 @@
+<h1 style="margin-top: 5em">Flyers</h1>
+<% @flyers.each do |flyer| %>
+  <p style="display: flex; justify-content: center; flex-flow: column;">
+  <span style="color: gray;">タイトル：</span><%= link_to flyer.title, flyer %>
+  <% if flyer.item_image? %>
+    <%= image_tag flyer.item_image.url, style: 'margin: auto;', id: 'preview', size: '200x300'  %>
+  <% end %>
+  <% if current_user.own?(flyer) %>
+    <%= link_to '削除', flyer_path(flyer), style: "color: red;", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %>
+  <% end %>
+  </p>
+<% end %>
+<%= link_to 'New Flyer', new_flyer_path %>
+  <%= paginate @flyers %>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <style>
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  color: white;
+}
+    a{
+      color: white;
+      text-decoration: none;
+
+    }
+
+    .btn--green,
+    a.btn--green {
+      color: #fff;
+      border: 1px solid #008000;
+      border-radius: 0.5rem;
+      /*コレ*/display: flex;
+                       /*コレ*/align-items: center;
+    }
+    .btn--green:hover,
+    a.btn--green:hover {
+      color: #fff;
+      background: #008000;
+      border-radius: 0.5rem;
+      /*コレ*/display: flex;
+                       /*コレ*/align-items: center;
+    }
+    ul{
+      list-style: none;
+    }
+    textarea{
+      background: #c0c0c0;
+      border-radius: 15px;
+    }
+    </style>
+  </head>
+
+  <body style="background: #c0c0c0; color: white; ">
+    <header>
+      <%= render 'shared/header' %>
+    </header>
+    <div style="margin-top: 7em">
+    <main style="
+                 margin: auto;
+                 background: #d3d3d3;
+                 color: #fff;
+                 text-align: center;
+                 width: 900px;">
+      <%= yield %>
+    </main>
+    </div>
+  </body>
+</html>
